@@ -13,3 +13,6 @@ build/
 轨迹/
 录屏/
 视频/
+.tools/
+backend/data/
+backend/src/main/resources/META-INF/resources/

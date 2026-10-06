@@ -1,0 +1,98 @@
+:root {
+  --blue: #1d4ed8;
+  --green: #15803d;
+  --orange: #c2410c;
+  --red: #b91c1c;
+  --gray: #64748b;
+  --border: #e2e8f0;
+  --bg: #f8fafc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: #1e293b;
+}
+
+.shell { max-width: 1100px; margin: 0 auto; padding: 16px; }
+
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+}
+header h1 { font-size: 20px; margin: 0; }
+
+nav a {
+  padding: 8px 16px; border-radius: 8px; text-decoration: none;
+  color: var(--gray); font-weight: 500;
+}
+nav a.active { background: var(--blue); color: #fff; }
+
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px; margin-bottom: 16px;
+}
+.card h2 { font-size: 16px; margin: 0 0 12px; }
+
+button {
+  background: var(--blue); color: #fff; border: none; border-radius: 6px;
+  padding: 7px 14px; font-size: 14px; cursor: pointer;
+}
+button:disabled { background: #cbd5e1; cursor: not-allowed; }
+button.ghost { background: #fff; color: var(--blue); border: 1px solid var(--blue); }
+button.danger { background: var(--red); }
+
+input, select {
+  padding: 7px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; }
+th { color: var(--gray); font-weight: 500; font-size: 13px; }
+
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: 12px; font-weight: 500;
+}
+.badge.CONFIRMED { background: #dcfce7; color: var(--green); }
+.badge.PENDING { background: #fef9c3; color: #a16207; }
+.badge.MANUAL_REVIEW { background: #ffedd5; color: var(--orange); }
+.badge.split { background: #fee2e2; color: var(--red); }
+.badge.need { background: #e0e7ff; color: #4338ca; }
+.badge.checkedin { background: #d1fae5; color: var(--green); }
+
+.alert { border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; font-size: 14px; }
+.alert.warn { background: #fff7ed; border: 1px solid #fed7aa; color: var(--orange); }
+.alert.error { background: #fef2f2; border: 1px solid #fecaca; color: var(--red); }
+.alert.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: var(--green); }
+
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.muted { color: var(--gray); font-size: 13px; }
+
+/* 座位图 */
+.seatmap { display: flex; flex-direction: column; gap: 6px; }
+.seat-row { display: flex; gap: 6px; align-items: center; }
+.seat-row .rowno { width: 28px; color: var(--gray); font-size: 12px; text-align: right; }
+.seat {
+  width: 64px; height: 40px; border-radius: 6px; border: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 12px; background: #fff; cursor: default;
+}
+.seat .who { font-size: 11px; color: var(--gray); max-width: 60px; overflow: hidden; white-space: nowrap; }
+.seat.aisle { width: 24px; border: none; background: transparent; }
+.seat.WHEELCHAIR { border-color: #818cf8; background: #eef2ff; }
+.seat.CHILD_SEAT { border-color: #f0abfc; background: #fdf4ff; }
+.seat.occupied-CONFIRMED { background: #dcfce7; border-color: #86efac; }
+.seat.occupied-PENDING { background: #fef9c3; border-color: #fde047; }
+.seat.selectable { cursor: pointer; }
+.seat.selectable:hover { outline: 2px solid var(--blue); }
+
+.compare { display: flex; gap: 16px; align-items: stretch; }
+.compare .side {
+  flex: 1; border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center;
+}
+.compare .side .seatno { font-size: 32px; font-weight: 700; margin: 8px 0; }
+.compare .arrow { align-self: center; font-size: 24px; color: var(--gray); }
